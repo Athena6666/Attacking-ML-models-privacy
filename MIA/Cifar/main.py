@@ -82,8 +82,8 @@ def main():
 
 
     train(shadow_net, shadow_train_loader, cifar10_testloader, shadow_optim, shadow_loss, n_epochs, classes=classes)
-    train_attacker(attack_net, shadow_net, shadow_train_loader, shadow_out_loader, attack_optim, nn.CrossEntropyLoss(0.01), n_epochs=1, k=k)
-    # train_attacker(attack_net, shadow_net, shadow_train_loader, shadow_out_loader, attack_optim, attack_loss, n_epochs=1, k=k)
+    # train_attacker(attack_net, shadow_net, shadow_train_loader, shadow_out_loader, attack_optim, 0.01, n_epochs=1, k=k)
+    train_attacker(attack_net, shadow_net, shadow_train_loader, shadow_out_loader, attack_optim, attack_loss, n_epochs=1, k=k)
     train(target_net, target_train_loader, cifar10_testloader, target_optim, target_loss, n_epochs, classes=classes)
     eval_attack_net(attack_net, target_net, target_train_loader, target_out_loader, k)
 
