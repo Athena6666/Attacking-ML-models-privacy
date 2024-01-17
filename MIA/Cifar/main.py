@@ -35,17 +35,17 @@ def main():
     ])
 
     # load training set 
-    cifar10_trainset = torchvision.datasets.CIFAR10('../../../Datasets/', train=True, transform=train_transform, download=True)
+    cifar10_trainset = torchvision.datasets.CIFAR10('../../Datasets/', train=True, transform=train_transform, download=True)
     cifar10_trainloader = torch.utils.data.DataLoader(cifar10_trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 
     # load test set 
-    cifar10_testset = torchvision.datasets.CIFAR10('../../../Datasets/', train=False, transform=test_transform, download=True)
+    cifar10_testset = torchvision.datasets.CIFAR10('../../Datasets/', train=False, transform=test_transform, download=True)
     cifar10_testloader = torch.utils.data.DataLoader(cifar10_testset, batch_size=32, shuffle=False, num_workers=2)
 
     classes = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
     total_size = len(cifar10_trainset)
-    split1 = total_size // 4
+    split1 = total_size
     split2 = split1*2
     split3 = split1*3
 

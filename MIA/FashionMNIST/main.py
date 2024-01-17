@@ -35,12 +35,12 @@ def main():
         torchvision.transforms.Normalize((0.1307,), (0.3081,))
     ])
 
-    # load training set 
-    trainset = torchvision.datasets.FashionMNIST('../../../Datasets/', train=True, transform=train_transform, download=True)
+    # load training set  
+    trainset = torchvision.datasets.FashionMNIST('../Datasets/', train=True, transform=train_transform, download=True)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 
     # load test set 
-    testset = torchvision.datasets.FashionMNIST('../../../Datasets/', train=False, transform=test_transform, download=True)
+    testset = torchvision.datasets.FashionMNIST('../Datasets/', train=False, transform=test_transform, download=True)
     testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
 
     classes = ["T-Shirt", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"]
