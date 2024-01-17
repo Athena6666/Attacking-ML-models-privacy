@@ -41,12 +41,12 @@ def main():
 
     # load training set 
 
-    mnist_trainset = torchvision.datasets.MNIST('../../../Datasets/', train=True, transform=train_transform, download=True)
+    mnist_trainset = torchvision.datasets.MNIST('../../Datasets/', train=True, transform=train_transform, download=True)
     mnist_trainloader = torch.utils.data.DataLoader(mnist_trainset, batch_size=batch_size, shuffle=True, num_workers=2)
 
     # load test set 
 
-    mnist_testset = torchvision.datasets.MNIST('../../../Datasets/', train=False, transform=test_transform, download=True)
+    mnist_testset = torchvision.datasets.MNIST('../../Datasets/', train=False, transform=test_transform, download=True)
     mnist_testloader = torch.utils.data.DataLoader(mnist_testset, batch_size=32, shuffle=False, num_workers=2)
 
 
