@@ -45,7 +45,7 @@ def main():
     classes = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
     total_size = len(cifar10_trainset)
-    split1 = total_size
+    split1 = total_size // 4
     split2 = split1*2
     split3 = split1*3
 

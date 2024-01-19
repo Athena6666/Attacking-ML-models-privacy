@@ -8,7 +8,10 @@ import matplotlib.pyplot as plt
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
+# optimizer：优化器
+# criterion：常用的损失函数
+# n_epochs：整数类型的可选项，默认为4。表示训练模型的周期数，一个周期是指对训练数据集进行完整的一次循环
+# verbose：日志显示
 def train(net, data_loader, test_loader, optimizer, criterion, n_epochs, classes=None, verbose=False):
     losses = []
     for epoch in range(n_epochs):
@@ -18,13 +21,13 @@ def train(net, data_loader, test_loader, optimizer, criterion, n_epochs, classes
             imgs, labels = batch
             imgs, labels = imgs.to(device), labels.to(device)
 
-            optimizer.zero_grad()
+            optimizer.zero_grad() # 清零之前的梯度
 
             outputs = net(imgs)
 
             loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
+            loss.backward() # 计算当前迭代的梯度
+            optimizer.step() # 使用优化器更新参数
 
             losses.append(loss.item())
 
